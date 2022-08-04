@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DrugCRUD.Models.MyDrug>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Drug Register</h2>
+
+<p>
+    @Html.ActionLink("Register new drug", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Drug_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Short_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Long_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Chemical_analysis)
+        </th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(ModelItem => item.Drug_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Short_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Long_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Chemical_analysis)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Drug_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Drug_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Drug_ID })
+        </td>
+    </tr>
+}
+
+</table>
